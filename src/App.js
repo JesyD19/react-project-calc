@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import Calculator from './components/Calculator';
+import { useState } from 'react';
+import { evaluate} from 'mathjs';
 
-function App() {
+const App = () => {
+  const [input, setInput] = useState('');  
+
+  const addInput= val => {
+    setInput(input + val);
+  };
+
+  const calculatingResult = () => {
+    if(input) {
+      setInput(evaluate(input));
+    }else {
+      alert('Please enter values to perform calculations');
+    }
+  };
+
+  const clearingResult = () => {
+    setInput('');
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1 className='text-center mt-5' style={ {color:'white'} }>Calculator</h1>
+      <Calculator 
+        input={input} 
+        handleClick={(e) => addInput(e.target.innerHTML)} 
+        handleClear={clearingResult}
+        handleResult={calculatingResult}
+      />
     </div>
   );
 }

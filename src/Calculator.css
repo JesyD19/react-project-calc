@@ -1,0 +1,23 @@
+.col-1{
+    margin: 0 auto;
+  }
+  
+  .container-calculator {
+    width: 50%;
+    border:2px solid white;
+    margin-top: 30px;
+    padding: 10px;
+    background-color: #3024cf;
+  }
+  
+  .btn {
+    color:white;
+  }
+  
+  .container-result {
+    color: white;
+    border: 1px solid black;
+    width: 80%;
+    height: 30px;
+    background-color: #1b1b32;
+  }
